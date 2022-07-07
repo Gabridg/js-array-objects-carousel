@@ -15,13 +15,39 @@
     width: 100%;
     object-fit: cover;
     border-radius: 20px;
-    display: none;
 }
 
 #carousel .active {
-    display: block;
+    display: inline-block;
+    position: relative;
 }
 
 .fa-solid {
     cursor: pointer;
+}
+
+#carousel strong {
+    /* display: none; */
+    position: absolute;
+    color: #fff;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    font-size: 15px;
+    padding: 0 10px;
+}
+
+#carousel span {
+    position: absolute;
+    color: #fff;
+    top: 30px;
+    right: 0;
+    z-index: 1;
+    font-size: 12px;
+    padding: 0 10px;
+}
+
+.pics {
+    position: relative;
+    display: none;
 }

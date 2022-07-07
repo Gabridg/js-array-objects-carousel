@@ -58,7 +58,6 @@ const pics = [
 
 
 // MILESTONE 2
-const source = ["img/01.jpg", "img/02.jpg", "img/03.jpg", "img/04.jpg", "img/05.jpg", "img/06.jpg", "img/07.jpg", "img/08.jpg", "img/09.jpg", "img/10.jpg"];
 
 const carousel = document.getElementById('carousel');
 const nextButton = document.getElementById('next');
@@ -66,24 +65,30 @@ const backButton = document.getElementById('back');
 
 let imageElement = '';
 
-for (let i = 0; i < source.length; i++) {
-    imageElement += `<img src=${source[i]} alt="landscape ${i}" />`;
-}
+pics.forEach((pic) => {
+    imageElement += `
+    <div class="w-100 h-100 pics">
+        <img src="${pic.url}" alt="landscape"/><strong>${pic.title}</strong><span>${pic.description}</span>
+    </div>`;
+})
 
 carousel.innerHTML = imageElement;
 
-const images = document.querySelectorAll('#carousel img');
-console.log(images);
 
+const images = document.querySelectorAll('#carousel .w-100');
+console.log(images)
 
 let currentActiveIndex = 0;
 
 images[currentActiveIndex].classList.add('active');
+images[currentActiveIndex].classList.remove('pics');
+
 
 
 // MILESTONE 3 + Bonus 1
 nextButton.addEventListener('click', function () {
     images[currentActiveIndex].classList.remove('active');
+    images[currentActiveIndex].classList.add('pics');
 
     currentActiveIndex++;
 
@@ -92,11 +97,13 @@ nextButton.addEventListener('click', function () {
     }
 
     images[currentActiveIndex].classList.add('active');
+    images[currentActiveIndex].classList.remove('pics');
 })
 
 
 backButton.addEventListener('click', function () {
     images[currentActiveIndex].classList.remove('active');
+    images[currentActiveIndex].classList.add('pics');
 
     currentActiveIndex--;
 
@@ -105,4 +112,5 @@ backButton.addEventListener('click', function () {
     }
 
     images[currentActiveIndex].classList.add('active');
+    images[currentActiveIndex].classList.remove('pics');
 })
